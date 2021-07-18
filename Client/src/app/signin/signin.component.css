@@ -7,18 +7,23 @@ form {
 }
 
 h1 {
+    margin: 20px 0;
     text-align: center;
-    font-family: Helvetica, Arial, sans-serif;
     font-size: x-large;
 }
 
-button {
-    margin-top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
+a {
+    width: 30%;
+    min-width: 200px;
+    margin: auto;
+}
+
+p {
+    margin: 10px 0;
+    text-align: center;
+    font-size: medium;
 }
 
 mat-form-field {
-    margin-top: 8px;
     width: 100%;
 }

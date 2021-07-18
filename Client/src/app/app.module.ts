@@ -12,6 +12,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import {MatDividerModule} from '@angular/material/divider';
 
 import { HomeComponent } from './home/home.component';
 import { SigninComponent } from './signin/signin.component';
@@ -40,7 +41,8 @@ import { NotfoundComponent } from './notfound/notfound.component';
     FlexLayoutModule,
     MatSidenavModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

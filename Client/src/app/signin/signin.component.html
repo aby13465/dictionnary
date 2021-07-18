@@ -1,12 +1,16 @@
 <form>
     <h1>Connexion</h1>
-    <mat-form-field>
+    <mat-form-field appearance="outline">
         <mat-label>E-mail</mat-label>
         <input matInput>
     </mat-form-field>
-    <mat-form-field>
-        <mat-label>Mot de Passe</mat-label>
-        <input matInput>
+    <mat-form-field appearance="outline">
+        <mat-label >Mot de Passe</mat-label>
+        <input type="password" matInput>
     </mat-form-field>
-    <button mat-raised-button color="primary">Connexion</button>
+    <div fxLayout="column">
+        <a mat-stroked-button>Se Connecter</a>
+        <p>ou bien</p>
+        <a mat-flat-button color="primary">Avec Facebook</a>
+    </div>
 </form>
