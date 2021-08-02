@@ -1,0 +1,18 @@
+<div class="form" >
+    <h1>Ajouter Definition</h1>
+    <mat-form-field appearance="outline">
+        <mat-label>Terme</mat-label>
+        <input (keyup)="onChangeTerm($event)"  matInput>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Definition</mat-label>
+        <textarea (keyup)="onChangeDefinition($event)" matInput></textarea>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Exemples</mat-label>
+        <textarea (keyup)="onChangeExamples($event)"  matInput></textarea>
+    </mat-form-field>
+
+    <button (click)="onClick()" mat-flat-button color="primary">Ajouter</button>
+<div>

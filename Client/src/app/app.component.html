@@ -3,11 +3,11 @@
     <span class="spacer"></span>
     <div fxShow="true" fxHide.lt-sm="true">
         <a href="" mat-button>Accueil</a>
-        <a href="signin" mat-button>Connexion</a>
-        <a href="signup" mat-button>Inscription</a>
-        <a href="ajouter" mat-button>Ajouter</a>
-        <a href="profile" mat-button>Profile</a>
-        <a href="#" mat-button>Déconnexion</a>
+        <a *ngIf="!loggedin" href="signin" mat-button>Connexion</a>
+        <a *ngIf="!loggedin" href="signup" mat-button>Inscription</a>
+        <a *ngIf="loggedin" href="add" mat-button>Ajouter</a>
+        <a *ngIf="loggedin" href="profile" mat-button>Profile</a>
+        <a *ngIf="loggedin" href="#" mat-button (click)="disconnect()">Déconnexion</a>
     </div>
     <div fxShow="true" fxHide.gt-xs="true">
         <button mat-icon-button (click)="changeToggler()">
@@ -18,11 +18,11 @@
 <mat-sidenav-container class="container">
     <mat-sidenav class="sidenav" opened="{{toggler}}" mode="side"  fxShow="true" fxHide.gt-xs="true">
         <a href="" mat-button>Accueil</a>
-        <a href="signin" mat-button>Connexion</a>
-        <a href="signup" mat-button>Inscription</a>
-        <a href="ajouter" mat-button>Ajouter</a>
-        <a href="profile" mat-button>Profile</a>
-        <a href="#" mat-button>Déconnexion</a>
+        <a *ngIf="!loggedin" href="signin" mat-button>Connexion</a>
+        <a *ngIf="!loggedin" href="signup" mat-button>Inscription</a>
+        <a *ngIf="loggedin" href="add" mat-button>Ajouter</a>
+        <a *ngIf="loggedin" href="profile" mat-button>Profile</a>
+        <a *ngIf="loggedin" href="#" mat-button>Déconnexion</a>
     </mat-sidenav>
     <router-outlet></router-outlet>
 </mat-sidenav-container>

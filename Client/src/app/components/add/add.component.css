@@ -1,0 +1,25 @@
+.form {
+    margin: auto;
+    margin-top: 20px;
+    width: 90%;
+    max-width: 800px;
+}
+
+.message {
+    color: red;
+    margin-bottom: 10px;
+}
+
+h1 {
+    margin: 10px 0;
+    text-align: center;
+    font-size: x-large;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+textarea {
+    height: 100px;
+}

@@ -41,16 +41,8 @@ public class DefinitionService {
                 definition.setDefinition(addDefinitionRequest.getDefinition());
                 definition.setExamples(addDefinitionRequest.getExamples());
                 definition.setCreationDate(LocalDate.now());
-                Definition newDefinition = this.definitionRepository.save(definition);
-                DefinitionResponse definitionResponse =
-                        new DefinitionResponse(
-                                newDefinition.getId(),
-                                newDefinition.getTerm(),
-                                newDefinition.getDefinition(),
-                                newDefinition.getExamples(),
-                                newDefinition.getCreationDate(),
-                                newDefinition.getAuthor().getUsername());
-                return definitionResponse;
+                this.definitionRepository.save(definition);
+                return new MessageResponse("Success");
             }
             return new MessageResponse("Token not valid.");
         }

@@ -1,0 +1,17 @@
+<div class="form">
+    <h1>Inscription</h1>
+    <div class="message" *ngIf="message">{{message}}</div>
+    <mat-form-field appearance="outline">
+        <mat-label>E-mail</mat-label>
+        <input (keyup)="onChangeEmail($event)" matInput>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Mot de Passe</mat-label>
+        <input (keyup)="onChangePassword($event)"  type="password" matInput>
+    </mat-form-field>
+    <div fxLayout="column">
+        <button (click)="onClick()" mat-stroked-button>S'inscrire</button>
+        <div class="or">ou bien</div>
+        <button mat-flat-button color="primary">Avec Facebook</button>
+    </div>
+</div>

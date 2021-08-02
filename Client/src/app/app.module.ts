@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -12,14 +13,15 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import {MatDividerModule} from '@angular/material/divider';
 
-import { HomeComponent } from './home/home.component';
-import { SigninComponent } from './signin/signin.component';
-import { SignupComponent } from './signup/signup.component';
-import { ProfileComponent } from './profile/profile.component';
-import { AjouterComponent } from './ajouter/ajouter.component';
-import { NotfoundComponent } from './notfound/notfound.component';
+import { HomeComponent } from './components/home/home.component';
+import { SigninComponent } from './components/signin/signin.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { NotfoundComponent } from './components/notfound/notfound.component';
+import { AuthGuard } from './guards/auth.guard';
+import { SignGuard } from './guards/sign.guard';
+import { AddComponent } from './components/add/add.component';
 
 @NgModule({
   declarations: [
@@ -28,8 +30,8 @@ import { NotfoundComponent } from './notfound/notfound.component';
     SigninComponent,
     SignupComponent,
     ProfileComponent,
-    AjouterComponent,
-    NotfoundComponent
+    NotfoundComponent,
+    AddComponent
   ],
   imports: [
     BrowserModule,
@@ -42,9 +44,9 @@ import { NotfoundComponent } from './notfound/notfound.component';
     MatSidenavModule,
     MatFormFieldModule,
     MatInputModule,
-    MatDividerModule
+    HttpClientModule
   ],
-  providers: [],
+  providers: [AuthGuard, SignGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
