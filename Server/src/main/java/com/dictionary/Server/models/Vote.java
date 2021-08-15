@@ -1,33 +1,57 @@
 package com.dictionary.Server.models;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import java.io.Serializable;
-import java.util.Objects;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
+import javax.persistence.*;
 
 @Entity
-public class Vote implements Serializable {
-    @Id
+public class Vote {
+
+    @EmbeddedId
+    private VoteId voteId;
+
     @ManyToOne
-    @JoinColumn(name = "voter_id")
+    @JoinColumn(name = "voter_id", insertable = false, updatable = false)
     private User voter;
 
-    @Id
-    @ManyToOne()
-    @JoinColumn(name = "definition_id")
+    @ManyToOne
+    @JoinColumn(name = "definition_id", insertable = false, updatable = false)
     private Definition definition;
 
     private boolean vote;
 
-    public Vote() {
+    public Vote(VoteId voteId, boolean vote) {
+        this.voteId = voteId;
+        this.vote = vote;
     }
 
-    public Vote(User voter, Definition definition, boolean vote) {
+    public Vote() {
+
+    }
+
+    public VoteId getVoteId() {
+        return voteId;
+    }
+
+    public void setVoteId(VoteId voteId) {
+        this.voteId = voteId;
+    }
+
+    public User getVoter() {
+        return voter;
+    }
+
+    public void setVoter(User voter) {
         this.voter = voter;
+    }
+
+    public Definition getDefinition() {
+        return definition;
+    }
+
+    public void setDefinition(Definition definition) {
         this.definition = definition;
-        this.vote = vote;
     }
 
     public boolean isVote() {
@@ -36,18 +60,5 @@ public class Vote implements Serializable {
 
     public void setVote(boolean vote) {
         this.vote = vote;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Vote vote1 = (Vote) o;
-        return vote == vote1.vote && Objects.equals(voter, vote1.voter) && Objects.equals(definition, vote1.definition);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(voter, definition, vote);
     }
 }

@@ -20,7 +20,7 @@ export class AddComponent implements OnInit {
   onClick() {
     this.definitionService.addDefinition(this.term, this.definition, this.examples).toPromise().then((data: any) => {
       if (data.message === "Success")
-        this.router.navigate(["/"])
+        this.router.navigate(["/term/" + this.term])
     })
   }
 

@@ -9,14 +9,20 @@ public class DefinitionResponse {
     private String examples;
     private LocalDate creationDate;
     private String author;
+    private int likes;
+    private int dislikes;
+    private String voteState;
 
-    public DefinitionResponse(Long id, String term, String definition, String examples, LocalDate creationDate, String author) {
+    public DefinitionResponse(Long id, String term, String definition, String examples, LocalDate creationDate, String author, int likes, int dislikes, String voteState) {
         this.id = id;
         this.term = term;
         this.definition = definition;
         this.examples = examples;
         this.creationDate = creationDate;
         this.author = author;
+        this.likes = likes;
+        this.dislikes = dislikes;
+        this.voteState = voteState;
     }
 
     public Long getId() {
@@ -65,5 +71,29 @@ public class DefinitionResponse {
 
     public void setAuthor(String author) {
         this.author = author;
+    }
+
+    public int getLikes() {
+        return likes;
+    }
+
+    public void setLikes(int likes) {
+        this.likes = likes;
+    }
+
+    public int getDislikes() {
+        return dislikes;
+    }
+
+    public void setDislikes(int dislikes) {
+        this.dislikes = dislikes;
+    }
+
+    public String getVoteState() {
+        return voteState;
+    }
+
+    public void setVoteState(String voteState) {
+        this.voteState = voteState;
     }
 }

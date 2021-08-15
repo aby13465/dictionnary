@@ -1,0 +1,39 @@
+* {
+    margin: 10px;
+}
+
+a {
+    margin: 0;
+    color: blue;
+    text-decoration: none;
+}
+
+ul {
+    margin-top: 20px;
+    padding: 0;
+    max-width: 600px;
+    min-width: 300px;
+    list-style-type: none;
+}
+
+li {
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    margin: 0;
+}
+
+mat-icon {
+    margin: 0;
+}
+
+mat-card {
+    margin: 0;
+}
+
+h1 {
+    font-size: x-large;
+    color: blueviolet;
+}

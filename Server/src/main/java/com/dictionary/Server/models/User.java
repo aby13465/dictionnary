@@ -1,14 +1,13 @@
 package com.dictionary.Server.models;
-
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 public class User implements UserDetails {
@@ -27,23 +26,11 @@ public class User implements UserDetails {
     private LocalDate creationDate;
     private UserType type;
 
-    @OneToMany(mappedBy = "author",cascade = CascadeType.ALL,orphanRemoval = true, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "author",cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
     private List<Definition> definitions;
 
-    @OneToMany(mappedBy = "voter",cascade = CascadeType.ALL)
-    private List<Vote> votes;
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "username='" + username + '\'' +
-                ", facebookId='" + facebookId + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", creationDate=" + creationDate +
-                ", type=" + type +
-                '}';
-    }
+    @OneToMany(mappedBy = "voter",cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
+    private Set<Vote> votes;
 
     public User() {
     }
@@ -136,5 +123,13 @@ public class User implements UserDetails {
 
     public void setDefinitions(List<Definition> definitions) {
         this.definitions = definitions;
+    }
+
+    public Set<Vote> getVotes() {
+        return votes;
+    }
+
+    public void setVotes(Set<Vote> votes) {
+        this.votes = votes;
     }
 }

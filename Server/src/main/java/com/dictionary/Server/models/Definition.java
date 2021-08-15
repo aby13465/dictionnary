@@ -3,7 +3,7 @@ package com.dictionary.Server.models;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Definition implements Serializable {
@@ -19,8 +19,8 @@ public class Definition implements Serializable {
     @JoinColumn(name = "author_id")
     private User author;
 
-    @OneToMany(mappedBy = "definition",cascade = CascadeType.ALL)
-    private List<Vote> votes;
+    @OneToMany(mappedBy = "definition", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
+    private Set<Vote> votes;
 
     @Override
     public String toString() {
@@ -90,5 +90,13 @@ public class Definition implements Serializable {
 
     public void setAuthor(User author) {
         this.author = author;
+    }
+
+    public Set<Vote> getVotes() {
+        return votes;
+    }
+
+    public void setVotes(Set<Vote> votes) {
+        this.votes = votes;
     }
 }

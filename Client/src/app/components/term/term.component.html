@@ -1,0 +1,19 @@
+<ul *ngFor="let d of data">
+    <li>
+        <mat-card>
+            <h1>{{d.term}}</h1>
+            <p>{{d.definition}}</p>
+            <p>{{d.examples}}</p>
+            <p>{{d.creationDate}} par <a href="profile">{{d.author}}</a></p>
+            <p>
+                <button mat-icon-button (click)="voteTerm(d.id,true)" color={{voteStateLiked(d.voteState)}}>
+                    <mat-icon>thumb_up</mat-icon> {{d.likes}}
+                </button>
+                <span></span>
+                <button mat-icon-button (click)="voteTerm(d.id,false)" color={{voteStateDisliked(d.voteState)}}>
+                    <mat-icon>thumb_down</mat-icon> {{d.dislikes}}
+                </button>
+            </p>
+        </mat-card>
+    </li>
+</ul>

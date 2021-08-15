@@ -6,11 +6,13 @@ import { NotfoundComponent } from './components/notfound/notfound.component'
 import { ProfileComponent } from './components/profile/profile.component'
 import { SigninComponent } from './components/signin/signin.component'
 import { SignupComponent } from './components/signup/signup.component'
+import { TermComponent } from './components/term/term.component'
 import { AuthGuard } from './guards/auth.guard'
 import { SignGuard } from './guards/sign.guard'
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
+  { path: 'term/:id', component: TermComponent },
   { path: 'signin', component: SigninComponent, canActivate: [SignGuard] },
   { path: 'signup', component: SignupComponent, canActivate: [SignGuard] },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
